@@ -1,6 +1,7 @@
 var express = require("express");
 var app = express();
 var indexRoute = require("./routes/index");
+app.set('view engine', 'ejs');
 
 app.use(indexRoute);
 
