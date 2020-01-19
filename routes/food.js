@@ -2,7 +2,7 @@ var express = require("express");
 router = express.Router();
 var mongoose = require("mongoose");
 var Food = require("../models/food");
-let {PythonShell} = require('python-shell')
+var PythonShell = require('python-shell')
 
 
 router.get('/foods', (req, res) => {
@@ -19,7 +19,7 @@ router.get('/foods', (req, res) => {
             //     busyIndex = data;
             //     console.log(busyIndex);
             // });
-            PythonShell.run('popArc.py', null, function (err, result) {
+            PythonShell.PythonShell.run('popArc.py', null, function (err, result) {
                 if (err) throw err;
                 busyIndex = parseInt(result, 10); 
             });
