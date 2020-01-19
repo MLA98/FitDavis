@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>FitDavis</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="/">
+        <img src="https://img.icons8.com/material-two-tone/48/000000/dumbbell.png" width="30" height="30" class="d-inline-block align-top" alt="">
+      FitDavis
+    </a>
+    <div class="navbar-nav ml-auto">
+      <% if(color === 'green'){%>
+          <%}%>
+              <span class="badge badge-success" style="font-size:small;">Not busy</span>
+          <% if(color === 'yellow'){%>
+              <span class="badge badge-warning">Not very busy</span>
+          <%}%>
+      
+          <% if(color === 'red'){%>
+              <span class="badge badge-danger">Very busy</span>
+      <%}%>
+    </div>
+</nav>
+
+
+<body>
+    
+  <div id="Exercise">
+      <h1 style="text-align: center;">Workout Details</h1>
+  <p>
+      <section>
+          <h2 style="text-align: center;">Chest:</h2>
+          <hr>
+          <div class="row">
+              <div class="card" style="width: 24.4rem;">
+                  <iframe id="BenchPress" src="https://www.youtube.com/embed/2QYKF6FkLao" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  <div class="card-body">
+                    <h5 class="card-title">Bench Press</h5>
+                    <p class="card-text">Flat, Incline, and Decline Variations.<br>Musclular Focus: Upper, Mid, and Lower Pectorals</p>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><a id="FlatBench" href="#" class="card-link">Flat</a></li>
+                    <li class="list-group-item"><a id="InclineBench" href="#" class="card-link">Incline</a></li>
+                    <li class="list-group-item"><a id="DeclineBench" href="#" class="card-link">Decline</a></li>
+                  </ul>
+                </div>
+                <div class="card" style="width: 24.4rem;">
+                  <iframe id="DumbellPress" src="https://www.youtube.com/embed/nXeZsghYwiM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  <div class="card-body">
+                    <h5 class="card-title">Dumbell Press</h5>
+                    <p class="card-text">Flat, Incline, and Decline Variations</p>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><a id="FlatDumbell" href="#" class="card-link">Flat</a></li>
+                    <li class="list-group-item"><a id="InclineDumbell" href="#" class="card-link">Incline</a></li>
+                    <li class="list-group-item"><a id="DeclineDumbell" href="#" class="card-link">Decline</a></li>
+                  </ul>
+                </div>
+                <div class="card" style="width: 24.4rem;">
+                  <iframe id="ChestFlyes" src="https://www.youtube.com/embed/Iwe6AmxVf7o" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  <div class="card-body">
+                    <h5 class="card-title">ChestFlyes</h5>
+                    <p class="card-text">Standard, Incline, and Decline Variations</p>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><a id="StandardFlye" href="#" class="card-link">Standard</a></li>
+                    <li class="list-group-item"><a id="InclineFlye" href="#" class="card-link">Incline</a></li>
+                    <li class="list-group-item"><a id="DeclineFlye" href="#" class="card-link">Decline</a></li>
+                  </ul>
+                </div>
+          </div>
+          <br> <br>
+      </section>
+
+      <section>
+          <h2 style="text-align: center;">Back:</h2>
+          <hr>
+          <div class="row">
+              <div class="card" style="width: 24.4rem;">
+                  <iframe id="Pullup" src="https://www.youtube.com/embed/juEuR3xDeTY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  <div class="card-body">
+                    <h5 class="card-title">Pullup</h5>
+                    <p class="card-text">Standard, Narrow, and Wide Grip Variations</p>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><a id="StandardPull" href="#" class="card-link">Standard</a></li>
+                    <li class="list-group-item"><a id="NarrowPull" href="#" class="card-link">Narrow</a></li>
+                    <li class="list-group-item"><a id="WidePull" href="#" class="card-link">Wide</a></li>
+                  </ul>
+                </div>
+                <div class="card" style="width: 24.4rem;">
+                  <iframe id="LatPulldown" src="https://www.youtube.com/embed/zMAMA9_Ehn8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  <div class="card-body">
+                    <h5 class="card-title">Lat Pulldown</h5>
+                    <p class="card-text">Works Lats</p>
+                  </div>
+                </div>
+                <div class="card" style="width: 24.4rem;">
+                  <iframe id="Row" src="https://www.youtube.com/embed/kXU69ef8U0s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  <div class="card-body">
+                    <h5 class="card-title">Row</h5>
+                    <p class="card-text">Bent-Over Barbell, Seated Cable, and Machine Variations</p>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><a id="BarbellRow" href="#" class="card-link">Bent-Over Barbell</a></li>
+                    <li class="list-group-item"><a id="SeatedRow" href="#" class="card-link">Seated Cable</a></li>
+                    <li class="list-group-item"><a id="MachRow" href="#" class="card-link">Machine</a></li>
+                  </ul>
+                </div>
+                <div class="card" style="width: 24.4rem;">
+                  <iframe id="Deadlift" src="https://www.youtube.com/embed/1nvAUJVmFZY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  <div class="card-body">
+                    <h5 class="card-title">Deadlift</h5>
+                    <p class="card-text"></p>
+                  </div>
+                </div>
+          </div>
+          <br> <br>
+      </section>
+
+      <section>
+          <h2 style="text-align: center;">Shoulders:</h2>
+          <hr>
+          <div class="row">
+              <div class="card" style="width: 24.4rem;">
+                  <iframe id="OverheadPress" src="https://www.youtube.com/embed/FKFDXzVf_ro" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  <div class="card-body">
+                    <h5 class="card-title">Overhead Press</h5>
+                    <p class="card-text">Standing and Seated Variations</p>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><a id="StandingOverhead" href="#" class="card-link">Standing</a></li>
+                    <li class="list-group-item"><a id="SeatedOverhead" href="#" class="card-link">Seated</a></li>
+                  </ul>
+                </div>
+                <div class="card" style="width: 24.4rem;">
+                  <iframe id="DumbellRaises" src="https://www.youtube.com/embed/xiP2ndl2OLQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  <div class="card-body">
+                    <h5 class="card-title">Dumbell Raises</h5>
+                    <p class="card-text">Lateral and Front Variations</p>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><a id="LateralRaises" href="#" class="card-link">Lateral</a></li>
+                    <li class="list-group-item"><a id="FrontRaises" href="#" class="card-link">Front</a></li>
+                  </ul>
+                </div>
+                <div class="card" style="width: 24.4rem;">
+                  <iframe id="RearDelt" src="https://www.youtube.com/embed/p1yQnTNE808" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  <div class="card-body">
+                    <h5 class="card-title">Seated Rear Delt Raises</h5>
+                    <p class="card-text">Bent-Over and Incline Variations</p>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><a id="BentDelts" href="#" class="card-link">Bent-Over</a></li>
+                    <li class="list-group-item"><a id="InclineDelts" href="#" class="card-link">Incline</a></li>
+                  </ul>
+                </div>
+          </div>
+          <br> <br>
+      </section>
+
+      <section>
+          <h2 style="text-align: center;">Biceps:</h2>
+          <hr>
+          <div class="row">
+              <div class="card" style="width: 24.4rem;">
+                  <iframe id="SeatedBicep" src="https://www.youtube.com/embed/soxrZlIl35U" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  <div class="card-body">
+                    <h5 class="card-title">Seated Bicep Curls</h5>
+                    <p class="card-text">Standing and Seated Variations</p>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><a id="InclineCurl" href="#" class="card-link">Incline</a></li>
+                    <li class="list-group-item"><a id="BarbellCurl" href="#" class="card-link">Barbell</a></li>
+                    <li class="list-group-item"><a id="MachineCurl" href="#" class="card-link">Machine</a></li>
+                  </ul>
+                </div>
+                <div class="card" style="width: 24.4rem;">
+                  <iframe id="StandingBicep" src="https://www.youtube.com/embed/zC3nLlEvin4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  <div class="card-body">
+                    <h5 class="card-title">Standing Bicep Curls</h5>
+                    <p class="card-text">Lateral and Front Variations</p>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><a id="HammerCurl" href="#" class="card-link">Hammer</a></li>
+                    <li class="list-group-item"><a id="BarbellSCurl" href="#" class="card-link">Barbell</a></li>
+                    <li class="list-group-item"><a id="EZCurl" href="#" class="card-link">EZ-Bar</a></li>
+                  </ul>
+                </div>
+          </div>
+          <br> <br>
+      </section>
+
+      <section>
+          <h2 style="text-align: center;">Triceps:</h2>
+          <hr>
+          <div class="row">
+              <div class="card" style="width: 24.4rem;">
+                  <iframe id="TriDips" src="https://www.youtube.com/embed/9bfjivJJM8Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  <div class="card-body">
+                    <h5 class="card-title">Dips</h5>
+                    <p class="card-text">Tricep Workout</p>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                  </ul>
+                </div>
+                <div class="card" style="width: 24.4rem;">
+                  <iframe id="SkullCrushers" src="https://www.youtube.com/embed/ir5PsbniVSc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  <div class="card-body">
+                    <h5 class="card-title">Skull Crushers</h5>
+                    <p class="card-text">Dumbell and Barbell Variations</p>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><a id="DumbellCrush" href="#" class="card-link">Dumbell</a></li>
+                    <li class="list-group-item"><a id="BarbellCrush" href="#" class="card-link">Barbell</a></li>
+                  </ul>
+                </div>
+                <div class="card" style="width: 24.4rem;">
+                  <iframe id="CablePulldown" src="https://www.youtube.com/embed/Zl46Cxc4DDs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  <div class="card-body">
+                    <h5 class="card-title">Tricept Cable Pulldown</h5>
+                    <p class="card-text">Single Arm and Both Arm Variations</p>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><a id="SinglePull" href="#" class="card-link">Single Arm</a></li>
+                    <li class="list-group-item"><a id="BothPull" href="#" class="card-link">Both Arms</a></li>
+                  </ul>
+                </div>
+          </div>
+          <br> <br>
+      </section>
+
+      <section>
+          <h2 style="text-align: center;">Quadriceps:</h2>
+          <hr>
+          <div class="row">
+              <div class="card" style="width: 24.4rem;">
+                  <iframe id="Squat" src="https://www.youtube.com/embed/ultWZbUMPL8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  <div class="card-body">
+                    <h5 class="card-title">Squat</h5>
+                    <p class="card-text">Back, Front, and Dumbell Variations</p>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                      <li class="list-group-item"><a id="BackSquat" href="#" class="card-link">Back</a></li>
+                      <li class="list-group-item"><a id="FrontSquat" href="#" class="card-link">Front</a></li>
+                      <li class="list-group-item"><a id="DumbellSquat" href="#" class="card-link">Dumbell</a></li>
+                  </ul>
+                </div>
+                <div class="card" style="width: 24.4rem;">
+                  <iframe id="LegPress" src="https://www.youtube.com/embed/1qJbN-XFFMw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  <div class="card-body">
+                    <h5 class="card-title">Leg Press</h5>
+                    <p class="card-text">Single Leg and Both Leg Variations</p>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><a id="SingleLegPress" href="#" class="card-link">Single Leg</a></li>
+                    <li class="list-group-item"><a id="BothLegPress" href="#" class="card-link">Both Legs</a></li>
+                  </ul>
+                </div>
+                <div class="card" style="width: 24.4rem;">
+                  <iframe id="SeatedLegExtension" src="https://www.youtube.com/embed/IqUhWKkpub8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  <div class="card-body">
+                    <h5 class="card-title">Seated Leg Extension</h5>
+                    <p class="card-text">Works</p>
+                  </div>
+                </div>
+          </div>
+          <br> <br>
+      </section>
+
+      <section>
+          <h2 style="text-align: center;">Hamstrings:</h2>
+          <hr>
+          <div class="row">
+              <div class="card" style="width: 24.4rem;">
+                  <iframe id="RDL" src="https://www.youtube.com/embed/GZAKFRNtxLY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  <div class="card-body">
+                    <h5 class="card-title">Romanian Deadlift</h5>
+                    <p class="card-text">Works out Hamstrings</p>
+                  </div>
+                </div>
+                <div class="card" style="width: 24.4rem;">
+                  <iframe id="HamCurls" src="https://www.youtube.com/embed/3tcjzbziRk0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  <div class="card-body">
+                    <h5 class="card-title">Hamstring Curls</h5>
+                    <p class="card-text">Seated and Lying Variations</p>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><a id="SeatedHam" href="#" class="card-link">Seated</a></li>
+                    <li class="list-group-item"><a id="LyingHam" href="#" class="card-link">Lying</a></li>
+                  </ul>
+                </div>
+          </div>
+          <br> <br>
+      </section>
+      <section>
+          <h2 style="text-align: center;">Cardio:</h2>
+          <hr>
+          <div class="row">
+              <div class="card" style="width: 24.4rem;">
+                  <iframe id="Elliptical" src="https://www.youtube.com/embed/E15Q3Z9J-Zg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  <div class="card-body">
+                    <h5 class="card-title">Elliptical</h5>
+                    <p class="card-text">Minimize impact on the knees and hips, but still allow a great workout</p>
+                  </div>
+                </div>
+                <div class="card" style="width: 24.4rem;">
+                  <iframe id="TreadMill" src="https://www.youtube.com/embed/9IEyJEesz9s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  <div class="card-body">
+                    <h5 class="card-title">Tread Mill Run</h5>
+                    <p class="card-text">Set the incline to 2-3% to simulate running outside</p>
+                  </div>
+                </div>
+                <div class="card" style="width: 24.4rem;">
+                  <iframe id="StairClimber" src="https://www.youtube.com/embed/tSFji-mth_E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  <div class="card-body">
+                    <h5 class="card-title">Stair Climber</h5>
+                    <p class="card-text">Because of the higher leg lift involved, climbing stairs uses significantly more muscles than just walking strengthening your legs in a functional way.</p>
+                  </div>
+                </div>
+                <div class="card" style="width: 24.4rem;">
+                  <iframe id="JumpingRope" src="https://www.youtube.com/embed/NkXDy8K-1jY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  <div class="card-body">
+                    <h5 class="card-title">Jumping Rope</h5>
+                    <p class="card-text">Jumping rope not only enhances your footwork, shoulder strength, and coordination, but also simulates sprinting.</p>
+                  </div>
+                </div>
+                <div class="card" style="width: 24.4rem;">
+                  <iframe id="Cycling" src="https://www.youtube.com/embed/Ovlm9wWTk7Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  <div class="card-body">
+                    <h5 class="card-title">Cycling</h5>
+                  </div>
+                </div>
+          </div>
+          <br> <br>
+      </section>
+
+  </p>
+  </div>
+  <script src="Script.js"></script>
+</body>
+</html>

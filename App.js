@@ -5,6 +5,7 @@ var foodRoute = require("./routes/food");
 var Food = require("./models/food")
 var mongoose = require("mongoose");
 var workoutRoute = require("./routes/workout");
+var planRoute = require("./routes/plan");
 const fs = require('fs');
 app.set('view engine', 'ejs');
 var bodyParser = require('body-parser')
@@ -60,6 +61,7 @@ app.use(express.static(__dirname + '/public'));
 app.use(indexRoute);
 app.use(foodRoute);
 app.use(workoutRoute);
+app.use(planRoute);
 
 
 

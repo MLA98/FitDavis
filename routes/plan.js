@@ -2,12 +2,9 @@ var express = require("express");
 router = express.Router();
 var PythonShell = require('python-shell')
 
-router.get('/workout', (req, res) => {
+
+router.get('/plan', (req, res) => {
     var busyIndex = 0;
-    // pythonProcess.stdout.on('data', (data) => {
-    //     busyIndex = data;
-    //     console.log(busyIndex);
-    // });
     PythonShell.PythonShell.run('popArc.py', null, function (err, result) {
         if (err) throw err;
         busyIndex = parseInt(result, 10); 
@@ -21,7 +18,7 @@ router.get('/workout', (req, res) => {
         color = 'red';
     }
 
-    res.render('workout', {color : color});
-})
+    res.render('buildWorkout', {color : color});
+});
 
 module.exports = router;

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>FitDavis</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        #Exercise {
+            margin-left: 3%;
+            margin-top: 2%;
+        }
+
+        hr {
+            display: block;
+            margin-top: 1em;
+            margin-bottom: 1em;
+            margin-left: 0;
+            margin-right: 0;
+            border-width: 3px;
+        }
+
+        .card {
+            margin: 15px;
+        }
+
+        #mainWrapper {
+            width: 70%;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="/">
+        <img src="https://img.icons8.com/material-two-tone/48/000000/dumbbell.png" width="30" height="30" class="d-inline-block align-top" alt="">
+      FitDavis
+    </a>
+    <div class="navbar-nav ml-auto">
+      <% if(color === 'green'){%>
+          <%}%>
+              <span class="badge badge-success" style="font-size:small;">Not busy</span>
+          <% if(color === 'yellow'){%>
+              <span class="badge badge-warning">Not very busy</span>
+          <%}%>
+      
+          <% if(color === 'red'){%>
+              <span class="badge badge-danger">Very busy</span>
+      <%}%>
+    </div>
+</nav>
+
+<body>
+    <div id="mainWrapper">
+        <div id="First">
+            <br>
+            <p style="text-align: center;">Welcome to your Custom Workout Builder! First choose which type of exercise
+                you
+                would
+                like to base you workout off of:</p>
+            <div class="row">
+                <div class="card" style="width: 24.4rem;">
+                    <img src="data:image/png;base64,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"
+                        class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Cardio</h5>
+                        <p class="card-text">Exercise focused on raising your heart rate aerobically. This workout will
+                            consist of
+                            exercises such as running, biking, rowing, and more.</p>
+                        <a href="#" class="btn btn-primary">Select</a>
+                    </div>
+                </div>
+                <div class="card" style="width: 24.4rem;">
+                    <img src="https://www.publicdomainpictures.net/pictures/290000/nahled/weight-lifting-silhouette.jpg"
+                        class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Body Building</h5>
+                        <p class="card-text">Exercise focused on buidling muslce. This workout will consist of multiple
+                            free
+                            weight
+                            and machine exercises targetting specific muscle groups.</p>
+                        <a href="#" class="btn btn-primary" id="bodyBtn">Select</a>
+                    </div>
+                </div>
+                <div class="card" style="width: 24.4rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Both</h5>
+                        <p class="card-text">A hybrid workout consisting of both Cardio and BodyBuilding.</p>
+                        <a href="#" class="btn btn-primary">Select</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="Bodybuilding" style="opacity: 0;">
+            <br>
+            <p style="text-align: center;">You chose to build a Bodybuilding workout. Below are two different recommened
+                types
+                of splits. Both splits seperate muscles into 3 days in which those muscles will be worked together. You
+                can
+                choose
+                either of the splits or create your own split by selecting "Custom Split"</p>
+            <div class="row">
+                <div class="card" style="width: 24.4rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Push-Pull-Legs</h5>
+                        <p class="card-text">Exercise focused on raising your heart rate aerobically. This workout will
+                            consist of
+                            exercises such as running, biking, rowing, and more.</p>
+                        <a href="#" class="btn btn-primary" id="pplExercise">Select</a>
+                    </div>
+                </div>
+                <div class="card" style="width: 24.4rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Antagonist Muscle Groups </h5>
+                        <p class="card-text">Exercise focused on buidling muslce. This workout will consist of multiple
+                            free
+                            weight
+                            and machine exercises targetting specific muscle groups.</p>
+                        <a href="#" class="btn btn-primary" id="Anterior">Select</a>
+                    </div>
+                </div>
+                <div class="card" style="width: 24.4rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Custom</h5>
+                        <p class="card-text">Create a Custom split spread amongst three days.</p>
+                        <a href="#" class="btn btn-primary">Select</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <br>
+            <p>
+                <p style="text-align: center;">You chose a Cardio Workout. Choose one of the following workout plans,
+                    our you can create your own by chooseing custom.</p>
+                <div class="row">
+                    <div class="card" style="width: 24.4rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Machine Heavy</h5>
+                            <p class="card-text">A workout composed of the various aerobic machines present in the ARC.
+                            </p>
+                            <a href="#" class="btn btn-primary" id="MachineHeavy">Select</a>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 24.4rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Road Heavy</h5>
+                            <p class="card-text">A workout taking advantage of the indoor track as well as physical
+                                equipment offered at the ARC. </p>
+                            <a href="#" class="btn btn-primary" id="RoadHeavy">Select</a>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 24.4rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Custom</h5>
+                            <p class="card-text">Create a custom cardio workout.</p>
+                            <a href="#" class="btn btn-primary">Select</a>
+                        </div>
+                    </div>
+                </div>
+            </p>
+        </div>
+
+
+
+        <div id="CardioSpecification" style="opacity: 0;">
+            <br>
+            <p>Here are your recommended exercises.</p>
+            <div>
+                <div class="row">
+                    <div style="width: 16rem;" class="card">
+                        <ul id="Cardio" class="list-group">
+                            <li class="list-group-item active"></li>
+                            <li class="list-group-item"></button></li>
+                            <li class="list-group-item"></li>
+                            <li class="list-group-item"></li>
+                        </ul>
+                    </div>
+                    <div class="button">
+                        <div style="padding-top: 85%">
+                            <button id="cardio1" style="margin-bottom:11px;" type="button"
+                                class="btn btn-primary">Remove</button> <br>
+                            <button id="cardio2" style="margin-bottom:11px;" type="button"
+                                class="btn btn-primary">Remove</button> <br>
+                            <button id="cardio3" type="button" class="btn btn-primary">Remove</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="WorkoutSpecification" style="opacity: 0;">
+            <br>
+            <p> Here are some reccomended workouts for each muscle group. </p>
+            <div>
+                <div class="row">
+                    <div style="width: 24.4rem;" class="card" id="day1">
+                        <div class="card-body">
+                            <h5 class="card-title">Day 1</h5>
+                        </div>
+                    </div>
+
+                    <div style="width: 24.4rem;" class="card" id="day2">
+                        <div class="card-body">
+                            <h5 class="card-title">Day 2</h5>
+                        </div>
+                    </div>
+
+                    <div style="width: 24.4rem;" class="card" id="day3">
+                        <div class="card-body">
+                            <h5 class="card-title">Day 3</h5>
+                        </div>
+                    </div>
+
+                    <div style="width: 16rem;" class="card" id="chestWrapper">
+                        <ul id="chest" class="list-group">
+                            <li class="list-group-item active">Chest</li>
+                            <li class="list-group-item">Remove</button></li>
+                            <li class="list-group-item"></li>
+                            <li class="list-group-item"></li>
+                        </ul>
+                    </div>
+                    <div class="rbutton">
+                        <div style="padding-top: 85%">
+                            <button id="chest1" style="margin-bottom:11px;" type="button"
+                                class="btn btn-primary">Remove</button> <br>
+                            <button id="chest2" style="margin-bottom:11px;" type="button"
+                                class="btn btn-primary">Remove</button> <br>
+                            <button id="chest3" type="button" class="btn btn-primary">Remove</button>
+                        </div>
+
+                    </div>
+
+                    <div style="width: 16rem;" class="card" id="backWrapper">
+                        <ul id="back" class="list-group">
+                            <li class="list-group-item active">Back</li>
+                            <li class="list-group-item"></li>
+                            <li class="list-group-item"></li>
+                            <li class="list-group-item"></li>
+                        </ul>
+                    </div>
+                    <div class="rbutton">
+                        <div style="padding-top: 85%">
+                            <button id="back1" style="margin-bottom:11px;" type="button"
+                                class="btn btn-primary">Remove</button> <br>
+                            <button id="back2" style="margin-bottom:11px;" type="button"
+                                class="btn btn-primary">Remove</button> <br>
+                            <button id="back3" type="button" class="btn btn-primary">Remove</button>
+                        </div>
+
+                    </div>
+
+                    <div style="width: 16rem;" class="card" id="shoulderWrapper">
+                        <ul id="shoulder" class="list-group">
+                            <li class="list-group-item active">Shoulders</li>
+                            <li class="list-group-item"></li>
+                            <li class="list-group-item"></li>
+                            <li class="list-group-item"></li>
+                        </ul>
+                    </div>
+                    <div class="rbutton">
+                        <div style="padding-top: 85%">
+                            <button id="shoulder1" style="margin-bottom:11px;" type="button"
+                                class="btn btn-primary">Remove</button> <br>
+                            <button id="shoulder2" style="margin-bottom:11px;" type="button"
+                                class="btn btn-primary">Remove</button> <br>
+                            <button id="shoulder3" type="button" class="btn btn-primary">Remove</button>
+                        </div>
+
+                    </div>
+
+                    <div style="width: 16rem;" class="card" id="bicepWrapper">
+                        <ul id="bicep" class="list-group">
+                            <li class="list-group-item active">Biceps</li>
+                            <li class="list-group-item"></li>
+                            <li class="list-group-item"></li>
+                        </ul>
+                    </div>
+                    <div class="rbutton">
+                        <div style="padding-top: 85%">
+                            <button id="bicep1" style="margin-bottom:11px;" type="button"
+                                class="btn btn-primary">Remove</button> <br>
+                            <button id="bicep2" style="margin-bottom:11px;" type="button"
+                                class="btn btn-primary">Remove</button> <br>
+
+                        </div>
+
+                    </div>
+
+                    <div style="width: 16rem;" class="card" id="tricepWrapper">
+                        <ul id="tricep" class="list-group">
+                            <li class="list-group-item active">Triceps</li>
+                            <li class="list-group-item"></li>
+                            <li class="list-group-item"></li>
+                        </ul>
+                    </div>
+                    <div class="rbutton">
+                        <div style="padding-top: 85%">
+                            <button id="tricep1" style="margin-bottom:11px;" type="button"
+                                class="btn btn-primary">Remove</button> <br>
+                            <button id="tricep2" style="margin-bottom:11px;" type="button"
+                                class="btn btn-primary">Remove</button> <br>
+                        </div>
+
+                    </div>
+
+                    <div style="width: 16rem;" class="card" id="quadricepWrapper">
+                        <ul id="quadricep" class="list-group">
+                            <li class="list-group-item active">Quadriceps</li>
+                            <li class="list-group-item"></li>
+                            <li class="list-group-item"></li>
+                            <li class="list-group-item"></li>
+                        </ul>
+                    </div>
+                    <div class="rbutton">
+                        <div style="padding-top: 85%">
+                            <button id="quad1" style="margin-bottom:11px;" type="button"
+                                class="btn btn-primary">Remove</button> <br>
+                            <button id="quad2" style="margin-bottom:11px;" type="button"
+                                class="btn btn-primary">Remove</button> <br>
+                            <button id="quad3" type="button" class="btn btn-primary">Remove</button>
+                        </div>
+
+                    </div>
+
+                    <div style="width: 16rem;" class="card" id="hamstringWrapper">
+                        <ul id="hamstring" class="list-group">
+                            <li class="list-group-item active">Hamstrings</li>
+                            <li class="list-group-item"></li>
+                            <li class="list-group-item"></li>
+                        </ul>
+                    </div>
+                    <div class="rbutton">
+                        <div style="padding-top: 85%">
+                            <button id="ham1" style="margin-bottom:11px;" type="button"
+                                class="btn btn-primary">Remove</button> <br>
+                            <button id="ham2" style="margin-bottom:11px;" type="button"
+                                class="btn btn-primary">Remove</button> <br>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+                <button type="button" class="btn btn-primary" id="generate">Generate Workout Plan</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="bodybuilding.js"></script>
+</body>
+
+</html>
