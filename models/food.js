@@ -1,12 +1,11 @@
 var mongoose = require("mongoose");
 
 var foodSchema = new mongoose.Schema({
-   name: String,
-   calories: Number,
-   protein: Number,
-   description: String,
-   fat: Number,
-   type: String
+   Name: String,
+   Calories: Number,
+   Fat: Number,
+   Carbohydrates: Number,
+   Protein: Number
 });
 
 module.exports = mongoose.model("food", foodSchema);
