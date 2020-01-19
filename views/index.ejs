@@ -14,7 +14,7 @@
         <img src="https://img.icons8.com/material-two-tone/48/000000/dumbbell.png" width="30" height="30" class="d-inline-block align-top" alt="">
       FitDavis
     </a>
-    <div class="container" style="margin-left: 20px;">
+    <div class="navbar-nav ml-auto">
         <% if(color === 'green'){%>
             <%}%>
                 <span class="badge badge-success" style="font-size:small;">Not busy</span>
@@ -30,10 +30,10 @@
 
 
 <div class="container-xl">
-  <form>
+  <form action="/login", method="post">
     <div class="form-group">
       <label for="exampleInputEmail1">Email address</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      <input type="email" name="emailname" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
       <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
     </div>
     <div class="form-group">
@@ -44,7 +44,8 @@
       <input type="checkbox" class="form-check-input" id="exampleCheck1">
       <label class="form-check-label" for="exampleCheck1">Check me out</label>
     </div>
-    <a href="/workout" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Log in</a>
+    <!-- <a href="/workout" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Log in</a> -->
+    <button type="submit" class="btn btn-primary btn-sm">Log in</button>
   </form>
 </div>
 

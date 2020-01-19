@@ -28,35 +28,14 @@
     </div>
 </nav>
 
+<h4 align="center" style="margin-top: 20px;">Welcome <%= username %> <span class="badge badge-secondary"></span></h4>
 
-<div id="accordion" style="margin-top: 10px;">
-    <!-- <ul class="list-group" style="margin-top: 10px;"> -->
-        <% count = 0 %>
-        <% food.forEach(function(foodItem){ %>
-            <div class="card">
-                <div class="card-header" id="heading<%=count%>">
-                  <h5 class="mb-0">
-                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapse<%=count%>" aria-expanded="true" aria-controls="collapse<%=count%>">
-                      <%= foodItem.Name %>
-                    </button>
-                  </h5>
-                </div>
-            
-                <div id="collapse<%=count%>" class="collapse" aria-labelledby="heading<%=count%>" data-parent="#accordion">
-                  <div class="card-body">
-                    Calories: <%= foodItem.Calories %> 
-                    <br>Protein: <%= foodItem.Protein %> g 
-                    <br>Carb: <%= foodItem.Carbohydrates %> g 
-                    <br>Fat: <%= foodItem.Fat %> g
-                  </div>
-                </div>
-            </div>
-              
-            <!-- <li class="list-group-item"><%= foodItem.Name %></li> -->
-            <% count ++ %>
-        <% }); %>
-    <!-- </ul> -->
-</div>  
-  
+<div class="text-center" style="margin-top: 50px;">
+    <div class="btn-group-vertical"  >
+        <a href="/foods" class="btn btn-lg btn-primary" style="margin-top: 10px;" role="button">Foods list</a>
+        <a href="/workout" class="btn btn-lg btn-primary" style="margin-top: 10px;" role="button">Workouts</a>
+        <a href="/plan" class="btn btn-lg btn-primary" style="margin-top: 10px;" role="button">Build a plan</a>
+    </div>
+</div>
 
 </html>

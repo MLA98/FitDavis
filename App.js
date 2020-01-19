@@ -7,6 +7,9 @@ var mongoose = require("mongoose");
 var workoutRoute = require("./routes/workout");
 const fs = require('fs');
 app.set('view engine', 'ejs');
+var bodyParser = require('body-parser')
+app.use(bodyParser.urlencoded({ extended: false }))
+
 
 mongoose.connect("mongodb+srv://yuldong:12qwaszx@cluster0-nfl2q.mongodb.net/test?retryWrites=true&w=majority");
 
